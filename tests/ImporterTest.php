@@ -6,12 +6,12 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 {
     public function testImportWithoutScope()
     {
-        $this->assertEquals([], import(__DIR__.'/import-test-file.php'));
+        $this->assertEquals(array(), import(__DIR__.'/import-test-file.php'));
     }
 
     public function testImportWithScope()
     {
-        $scope = ['foo' => 'bar'];
+        $scope = array('foo' => 'bar');
         $this->assertEquals($scope, import(__DIR__.'/import-test-file.php', $scope));
     }
 
