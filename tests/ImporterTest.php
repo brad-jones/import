@@ -1,9 +1,31 @@
 <?php
 
-Brads\Importer::globalise();
-
 class ImporterTest extends PHPUnit_Framework_TestCase
 {
+    public function testImportViaInstance()
+    {
+        $this->assertEquals(array(), (new Brads\Importer())->newImport(__DIR__.'/import-test-file.php'));
+    }
+
+    public function testImportViaStatic()
+    {
+        $this->assertEquals(array(), Brads\Importer::import(__DIR__.'/import-test-file.php'));
+    }
+
+    public function testImportViaNamespacedFunction()
+    {
+        $this->assertEquals(array(), Brads\import(__DIR__.'/import-test-file.php'));
+    }
+
+    public function testImportGlobalise()
+    {
+        $this->assertFalse(function_exists('import'));
+        Brads\Importer::globalise();
+        $this->assertTrue(function_exists('import'));
+    }
+
+    // NOTE: Remaining tests make use of the global function.
+
     public function testImportWithoutScope()
     {
         $this->assertEquals(array(), import(__DIR__.'/import-test-file.php'));
@@ -24,16 +46,5 @@ class ImporterTest extends PHPUnit_Framework_TestCase
         );
 
         import('not_existing_file.php', null, false);
-    }
-
-    public function testImportViaInstance()
-    {
-        $importer = new Brads\Importer();
-        $this->assertEquals(array(), $importer->newImport(__DIR__.'/import-test-file.php'));
-    }
-
-    public function testImportViaStatic()
-    {
-        $this->assertEquals(array(), Brads\Importer::import(__DIR__.'/import-test-file.php'));
     }
 }

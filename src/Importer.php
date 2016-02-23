@@ -1,8 +1,5 @@
 <?php namespace Brads;
 
-// Original idea came from:
-// https://gist.github.com/Eraknelo/6795b983825fc6a720ef
-
 class Importer implements ImporterInterface
 {
     /**
@@ -33,7 +30,7 @@ class Importer implements ImporterInterface
 
         return $exports;
     }
-    
+
     /** @inheritdoc */
     public function newImport($file, $scope = null, $require = true)
     {
