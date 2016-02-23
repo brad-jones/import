@@ -25,4 +25,15 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
         import('not_existing_file.php', null, false);
     }
+
+    public function testImportViaInstance()
+    {
+        $importer = new Brads\Importer();
+        $this->assertEquals(array(), $importer->newImport(__DIR__.'/import-test-file.php'));
+    }
+
+    public function testImportViaStatic()
+    {
+        $this->assertEquals(array(), Brads\Importer::import(__DIR__.'/import-test-file.php'));
+    }
 }

@@ -3,7 +3,7 @@
 // Original idea came from:
 // https://gist.github.com/Eraknelo/6795b983825fc6a720ef
 
-class Importer
+class Importer implements ImporterInterface
 {
     /**
      * Includes a file with an empty variable scope.
@@ -33,6 +33,12 @@ class Importer
 
         return $exports;
     }
+    
+    /** @inheritdoc */
+    public function newImport($file, $scope = null, $require = true)
+    {
+        return static::import($file, $scope, $require);
+    }
 
     /**
      * Imports a global version of the ```import()``` function.
@@ -41,7 +47,7 @@ class Importer
      */
     public static function globalise()
     {
-        Importer::import(__DIR__.'/function.php');
+        static::import(__DIR__.'/function.php');
     }
 }
 
