@@ -4,7 +4,8 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 {
     public function testImportViaInstance()
     {
-        $this->assertEquals(array(), (new Brads\Importer())->newImport(__DIR__.'/import-test-file.php'));
+        $importer = new Brads\Importer();
+        $this->assertEquals(array(), $importer->newImport(__DIR__.'/import-test-file.php'));
     }
 
     public function testImportViaStatic()
