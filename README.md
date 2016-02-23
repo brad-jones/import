@@ -117,8 +117,8 @@ var_dump($exported == $scope); // true
 ```
 
 ### Include or Require:
-Under the hood import does use the normal ```include``` or ```require```
-constructs. By default we use ```require``` but you can changes this easily.
+Under the hood import does use the normal ```include``` or ```require```.  
+By default we use ```require``` but you can changes this easily.
 
 ```php
 import('foo.php', null, true);  // requires foo.php
