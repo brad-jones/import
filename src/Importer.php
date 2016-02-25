@@ -10,10 +10,8 @@ class Importer implements ImporterInterface
      * @param  boolean    $require Whether to use require() or include().
      * @return mixed               Anything the file returns.
      */
-    public static function import($file, $scope = null, $require = true)
+    public static function import()
     {
-        unset($file, $scope, $require);
-
         if (count(func_get_args()) >= 2 && func_get_arg(1) !== null)
         {
             extract(func_get_arg(1));
