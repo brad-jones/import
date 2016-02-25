@@ -40,11 +40,21 @@ class ImporterTest extends PHPUnit_Framework_TestCase
 
     public function testImportInclude()
     {
-        $this->setExpectedExceptionRegExp
-        (
-            'PHPUnit_Framework_Error_Warning',
-            '/^include\(not_existing_file\.php\)/'
-        );
+        if (defined('HHVM_VERSION'))
+        {
+            $this->setExpectedException
+            (
+                'PHPUnit_Framework_Error_Warning'
+            );
+        }
+        else
+        {
+            $this->setExpectedExceptionRegExp
+            (
+                'PHPUnit_Framework_Error_Warning',
+                '/^include\(not_existing_file\.php\)/'
+            );
+        }
 
         import('not_existing_file.php', null, false);
     }
