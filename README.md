@@ -4,6 +4,7 @@ Brads PHP File Importer
 [![Latest Stable Version](https://poser.pugx.org/brad-jones/import/v/stable.svg)](https://packagist.org/packages/brad-jones/import)
 [![Total Downloads](https://poser.pugx.org/brad-jones/import/downloads.svg)](https://packagist.org/packages/brad-jones/import)
 [![License](https://poser.pugx.org/brad-jones/import/license.svg)](https://packagist.org/packages/brad-jones/import)
+[![HHVM Tested](http://hhvm.h4cc.de/badge/brad-jones/import.svg?style=flat)](http://hhvm.h4cc.de/package/brad-jones/import)
 
 Includes a PHP file in such a way as to isolate it from where it was included.
 This package provides a new pseudo language construct, you will be familiar with
